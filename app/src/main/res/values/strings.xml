@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">CSDF Community App</string>
+
+    <string name="go_to_next_activity">Go to next activity</string>
+    <string name="upload_video">Upload Video</string>
+    <string name="sos">SOS</string>
+    <string name="location">Location</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+    <string name="button">Button</string>
+    <string name="send_sos_email">Send SOS Email</string>
+    <string name="welcome_you_are_logged_in">Welcome! You are logged in</string>
+    <string name="invalid_text">Invalid Text</string>
+    <string name="information_unavailable">Information unavailable</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="or">--------------OR--------------</string>
+    <string name="already_have_an_account_login_here">Already Have an Account? Login Here</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="forgot_password_click_here">Forgot Password? Click Here</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="reset">Reset</string>
+    <string name="log_in">Log In</string>
+    <string name="not_registered_sign_up_here">Not Registered? Sign Up Here</string>
+    <string name="choose_file">Choose File</string>
+    <string name="upload">Upload</string>
+</resources>
