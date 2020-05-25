@@ -19,6 +19,12 @@ public class HomeActivity extends AppCompatActivity {
     /*
     This is the main Activity or the Home activity displayed only after successful sign In
          */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

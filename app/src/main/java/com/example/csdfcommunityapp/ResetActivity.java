@@ -21,6 +21,13 @@ public class ResetActivity extends AppCompatActivity {
     EditText emailId;
     Button btnResetPasswd;
     FirebaseAuth mFirebaseAuth;
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(ResetActivity.this,LoginActivity.class);
+        startActivity(i);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

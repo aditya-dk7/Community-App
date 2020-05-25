@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
      has a successful sign in
      The code uses Firebase to verify the authentication & Storage of data
      */
-    EditText emailId, password;
+    EditText emailId, password,rePassword;
     Button btnSignUp;
     TextView tvLogIn;
     TextView tvResetPassword;
@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             mFirebaseAuth = FirebaseAuth.getInstance();
             emailId = findViewById(R.id.userEmail);
             password = findViewById(R.id.userPasswd);
+            rePassword = findViewById(R.id.reUserPasswd);
             btnSignUp = findViewById(R.id.buttonLogIn);
             tvLogIn = findViewById(R.id.signUpActivity);
             tvResetPassword = findViewById(R.id.resetActivity);
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     final String email = emailId.getText().toString();
                     String pwd = password.getText().toString();
+                    String rePwd = rePassword.getText().toString();
 
                     if(email.isEmpty()){
                         emailId.setError("Please enter email id");
@@ -99,23 +101,31 @@ public class MainActivity extends AppCompatActivity {
                         password.setError("Please enter your password");
                         password.requestFocus();
                     }
-                    else  if(email.isEmpty() && pwd.isEmpty()){
+                    else if(rePwd.isEmpty()){
+                        rePassword.setError("Please re-enter your password");
+                        rePassword.requestFocus();
+                    }
+                    else  if((email.isEmpty() && pwd.isEmpty())||(rePwd.isEmpty())){
                         Toast.makeText(MainActivity.this,"Fields Are Empty!",Toast.LENGTH_SHORT).show();
                     }
-                    else  if(!(email.isEmpty() && pwd.isEmpty())){
-                        mFirebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
+                    else  if(!(email.isEmpty() && pwd.isEmpty() && rePwd.isEmpty())){
+                        if(!pwd.equals(rePwd)){
+                            rePassword.setError("Passwords do not match!!!");
+                            rePassword.requestFocus();
+                        }else {
+                            mFirebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                if(!task.isSuccessful()){
-                                    Toast.makeText(MainActivity.this,"SignUp Unsuccessful, Please Try Again",Toast.LENGTH_SHORT).show();
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(MainActivity.this, "SignUp Unsuccessful, Please Try Again", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        // The following code will run only if everything goes out smoothly and the new user is created.
+                                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                                    }
                                 }
-                                else {
-                                    // The following code will run only if everything goes out smoothly and the new user is created.
-                                    startActivity(new Intent(MainActivity.this,HomeActivity.class));
-                                }
-                            }
-                        });
+                            });
+                        }
                     }
                     else{
                         Toast.makeText(MainActivity.this,"Error Occurred!",Toast.LENGTH_SHORT).show();
