@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class MapFragment extends Fragment {
     LocationListener locationListener;
     TextView textView;
 
+
     // Required empty public constructor
     public MapFragment() {
 
@@ -41,11 +43,31 @@ public class MapFragment extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-            if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)==
-                    PackageManager.PERMISSION_GRANTED){
+        if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            if(ContextCompat.checkSelfPermission(getActivity() , Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED){
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+                Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (lastKnownLocation != null) {
 
+                    String toDisplay="";
+                    toDisplay = "Latitude: "+lastKnownLocation.getLatitude()+"\n\nLongitude: "+lastKnownLocation.getLongitude()+
+                            "\n\nAccuracy: "+lastKnownLocation.getAccuracy()+"\n\nAltitude: "+lastKnownLocation.getAltitude();
+                    textView.setText(toDisplay);
+
+                    Geocoder geocoder = new Geocoder(getActivity().getApplicationContext(), Locale.getDefault());
+                    try {
+                        List<Address> addressList = geocoder.getFromLocation(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude(),1);
+                        if(!addressList.get(0).getAddressLine(0).isEmpty()) {
+                            toDisplay += "\n\nAddress:\n" + addressList.get(0).getAddressLine(0);
+                            textView.setText(toDisplay);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+
+                }
             }
         }
     }
@@ -57,12 +79,14 @@ public class MapFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
         textView = view.findViewById(R.id.signUpActivity);
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+
+
                 String toDisplay="";
                 toDisplay = "Latitude: "+location.getLatitude()+"\n\nLongitude: "+location.getLongitude()+"\n\nAccuracy: "+location.getAccuracy()+"\n\nAltitude: "+location.getAltitude();
-                //Log.i("LocationLATLON: ",location.getLatitude()+","+location.getLongitude());
                 textView.setText(toDisplay);
 
                 Geocoder geocoder = new Geocoder(getActivity().getApplicationContext(), Locale.getDefault());
@@ -75,9 +99,6 @@ public class MapFragment extends Fragment {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
-
             }
 
             @Override
@@ -95,14 +116,31 @@ public class MapFragment extends Fragment {
 
             }
         };
-        if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)!=
-                PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
-
-        }else{
+        if(ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED){
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
-        }
+            Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if (lastKnownLocation != null) {
+                String toDisplay="";
+                toDisplay = "Latitude: "+lastKnownLocation.getLatitude()+"\n\nLongitude: "+lastKnownLocation.getLongitude()+
+                        "\n\nAccuracy: "+lastKnownLocation.getAccuracy()+"\n\nAltitude: "+lastKnownLocation.getAltitude();
+                textView.setText(toDisplay);
 
+                Geocoder geocoder = new Geocoder(getActivity().getApplicationContext(), Locale.getDefault());
+                try {
+                    List<Address> addressList = geocoder.getFromLocation(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude(),1);
+                    if(!addressList.get(0).getAddressLine(0).isEmpty()) {
+                        toDisplay += "\n\nAddress:\n" + addressList.get(0).getAddressLine(0);
+                        textView.setText(toDisplay);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }else{
+            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},4);
+        }
         return view;
     }
 }
