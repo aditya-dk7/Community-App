@@ -4,6 +4,7 @@ package com.example.csdfcommunityapp;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -135,6 +137,14 @@ public class UploadFragment extends Fragment {
                         videoView.start();
                         mPlayPause.setText("Pause");
                         playPAUSE = true;
+                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            @Override
+                            public void onCompletion(MediaPlayer mp) {
+                                mPlayPause.setText("Play");
+                                playPAUSE=false;
+                            }
+                        });
+
                     }else {
                         videoView.pause();
                         mPlayPause.setText("Play");
@@ -142,12 +152,16 @@ public class UploadFragment extends Fragment {
 
                     }
 
+
                 }
                 else{
                     Toast.makeText(getActivity(),"Choose a file",Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+
+
         return view;
     }
 
