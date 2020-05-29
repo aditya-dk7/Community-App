@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
     private int RC_LOG_IN = 1;
     EditText emailId, password;
     Button btnLogIn;
-    TextView tvSignUp;
-    TextView tvResetPassword;
+    ImageView tvSignUp;
+    ImageView tvResetPassword;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 

@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">CSDF Community App</string>
+    <string name="app_name">Community App</string>
+
 
     <string name="go_to_next_activity">Go to next activity</string>
     <string name="upload_video">Upload Video</string>
@@ -30,4 +31,13 @@
     <string name="upload_progresss">Upload Progress:</string>
     <string name="file_name_no_file_chosen">File Name: No file chosen</string>
     <string name="play">Play</string>
+    <string name="sign_in_with_google">Sign In With Google</string>
+    <string name="ortext">ortext</string>
+    <string name="entering_email">Entering email</string>
+    <string name="login_page">Login Page</string>
+    <string name="just_a_box">Just A Box</string>
+    <string name="app_logo">App Logo</string>
+    <string name="mp_police_logo">Mp Police Logo</string>
+    <string name="entering_password">Entering Password</string>
+    <string name="entering_email1">Entering Email</string>
 </resources>

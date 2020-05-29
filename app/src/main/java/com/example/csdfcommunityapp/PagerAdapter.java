@@ -24,6 +24,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
+
                 return new SosFragment();
             case 1:
                 return new UploadFragment();

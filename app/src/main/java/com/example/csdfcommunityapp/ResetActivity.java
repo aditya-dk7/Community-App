@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ public class ResetActivity extends AppCompatActivity {
      */
     EditText emailId;
     Button btnResetPasswd;
+    ImageView backToLogin;
     FirebaseAuth mFirebaseAuth;
     @Override
     public void onBackPressed() {
@@ -33,6 +35,14 @@ public class ResetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset);
+        backToLogin = findViewById(R.id.imageView12);
+        backToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ResetActivity.this,LoginActivity.class);
+                startActivity(i);
+            }
+        });
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailId = findViewById(R.id.userEmail);
         btnResetPasswd = findViewById(R.id.buttonLogIn);

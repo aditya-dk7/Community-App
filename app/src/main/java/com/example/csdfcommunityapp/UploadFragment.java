@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
@@ -61,7 +62,8 @@ public class UploadFragment extends Fragment {
     this fragment seems like a green signal from me...no UI for now
      */
     private static final int PICK_VIDEO_REQUEST = 2;
-    private Button mButtonChooseVideo,mPlayPause;
+    private Button mButtonChooseVideo;
+    private ImageView mPlayPause,mPlayPause1;
     private Button mVideoUpload;
     private VideoView videoView;
     private ListView listView;
@@ -92,6 +94,7 @@ public class UploadFragment extends Fragment {
         mVideoUpload = view.findViewById(R.id.buttonLogIn);
         mProgressBar = view.findViewById(R.id.progressBar);
         mPlayPause = view.findViewById(R.id.button2);
+        mPlayPause1 = view.findViewById(R.id.button3);
         mFirebaseAuth2 = FirebaseAuth.getInstance();
         mUploads = new ArrayList<>();
         mfileName = null;
@@ -118,7 +121,7 @@ public class UploadFragment extends Fragment {
             public void onClick(View v) {
                 if(mVideoURI!=null) {
                     videoView.stopPlayback();
-                    mPlayPause.setText("Play");
+                    mPlayPause.setBackgroundResource(R.drawable.pause);
                     playPAUSE=false;
                     videoView.setVisibility(View.INVISIBLE);
                     uploadFile();
@@ -135,19 +138,22 @@ public class UploadFragment extends Fragment {
                 if(mVideoURI!=null){
                     if(!playPAUSE){
                         videoView.start();
-                        mPlayPause.setText("Pause");
+                        mPlayPause1.setVisibility(View.VISIBLE);
+
                         playPAUSE = true;
                         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                             @Override
                             public void onCompletion(MediaPlayer mp) {
-                                mPlayPause.setText("Play");
+                                mPlayPause1.setVisibility(View.INVISIBLE);
+
                                 playPAUSE=false;
                             }
                         });
 
                     }else {
                         videoView.pause();
-                        mPlayPause.setText("Play");
+                        mPlayPause1.setVisibility(View.INVISIBLE);
+
                         playPAUSE=false;
 
                     }
@@ -250,7 +256,7 @@ public class UploadFragment extends Fragment {
                                             .setNegativeButton("No", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
-                                                    mPlayPause.setText("Play");
+                                                    mPlayPause.setBackgroundResource(R.drawable.play);
                                                     playPAUSE=false;
                                                     videoView.setVisibility(View.VISIBLE);
                                                     dialog.cancel();

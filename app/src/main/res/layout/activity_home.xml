@@ -14,6 +14,9 @@
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
+        app:tabSelectedTextColor="@color/bleedred"
+        app:tabIndicatorColor="#FF0000"
+        app:tabTextColor="#C1C1C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

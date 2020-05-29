@@ -4,13 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F6F6"
     tools:context=".UploadFragment">
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="216dp"
+        android:layout_height="49dp"
+        android:background="@drawable/choosefile"
         android:text="@string/choose_file"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -20,9 +26,14 @@
 
     <Button
         android:id="@+id/buttonLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="216dp"
+        android:layout_height="49dp"
         android:text="@string/upload"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:background="@drawable/choosefile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -87,18 +98,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.397" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="163dp"
-        android:layout_marginEnd="160dp"
-        android:text="@string/play"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+    android:id="@+id/button2"
+    android:layout_width="150dp"
+    android:layout_height="45dp"
+    android:layout_marginStart="180dp"
+    android:layout_marginEnd="181dp"
+    app:layout_constraintBottom_toTopOf="@+id/textView"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/videoView"
+    app:layout_constraintVertical_bias="0.731"
+    app:srcCompat="@drawable/play" />
+
+    <ImageView
+        android:id="@+id/button3"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginEnd="181dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintTop_toBottomOf="@+id/videoView"
+        app:layout_constraintVertical_bias="0.731"
+        app:srcCompat="@drawable/pause" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

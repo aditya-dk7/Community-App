@@ -18,12 +18,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class SosFragment extends Fragment {
 
 
 
-    Button sendSOS;
+    ImageView sendSOS;
     LocationManager locationManager;
     LocationListener locationListener;
     double latitude,longitude;
@@ -57,6 +58,9 @@ public class SosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
+        //setTheme(R.style.RedTheme);
+        //getContext().setTheme().applyStyle(R.style.RedTheme, true);
+
         // Fragments cannot use views unless you specifically do the following. REMEMBER TO USE "view" to access the usual commands
         View view = inflater.inflate(R.layout.fragment_sos, container, false);
 
