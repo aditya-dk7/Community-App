@@ -40,4 +40,10 @@
     <string name="mp_police_logo">Mp Police Logo</string>
     <string name="entering_password">Entering Password</string>
     <string name="entering_email1">Entering Email</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="click_here_to_go_to_next_activity">Click here to go to next activity</string>
+    <string name="back">Back</string>
+    <string name="display_n_nearby_n_police_stations">Display\n Nearby\n Police stations</string>
+    <string name="display_n_nearby_hospitals">Display\n nearby hospitals</string>
+    <string name="view_your_location_on_map">View Your Location On Map</string>
 </resources>

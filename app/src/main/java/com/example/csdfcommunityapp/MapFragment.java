@@ -2,6 +2,7 @@ package com.example.csdfcommunityapp;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.location.Address;
@@ -102,6 +103,14 @@ public class MapFragment extends Fragment {
         textViewAcc = view.findViewById(R.id.accStatus2);
         textViewAlt = view.findViewById(R.id.altStatus2);
         textViewAdd = view.findViewById(R.id.addStatus2);
+        Button button6 = view.findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),MapsActivity.class);
+                startActivity(i);
+            }
+        });
 
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 

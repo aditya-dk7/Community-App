@@ -119,17 +119,35 @@
 
     <TextView
         android:id="@+id/addStatus2"
-        android:layout_width="306dp"
-        android:layout_height="200dp"
+        android:layout_width="314dp"
+        android:layout_height="168dp"
         android:layout_marginLeft="52dp"
         android:layout_marginEnd="52dp"
         android:paddingLeft="15dp"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addStatus"
         app:layout_constraintVertical_bias="0.346" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="227dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="162dp"
+        android:background="@drawable/choosefile"
+        android:text="View Location On MAP"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.906" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
