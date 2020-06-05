@@ -61,6 +61,8 @@ public class ResetActivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(ResetActivity.this, "Reset Error, Please Try Again", Toast.LENGTH_SHORT).show();
                             } else {
+                                Toast.makeText(ResetActivity.this, "Reset Link was sent to your registered email", Toast.LENGTH_SHORT).show();
+
                                 Intent intToHome = new Intent(ResetActivity.this, LoginActivity.class);
                                 startActivity(intToHome);
                             }

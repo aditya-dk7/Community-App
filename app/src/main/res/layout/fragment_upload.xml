@@ -11,7 +11,7 @@
         android:id="@+id/button"
         android:layout_width="216dp"
         android:layout_height="49dp"
-        android:background="@drawable/choosefile"
+        android:background="@drawable/choosefile_button"
         android:text="@string/choose_file"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -33,7 +33,7 @@
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:background="@drawable/choosefile"
+        android:background="@drawable/choosefile_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -50,7 +50,6 @@
         android:layout_marginEnd="31dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.801" />
@@ -80,10 +79,10 @@
         android:text="@string/file_name_no_file_chosen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.028" />
 
     <VideoView
         android:id="@+id/videoView"
@@ -108,7 +107,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/videoView"
     app:layout_constraintVertical_bias="0.731"
-    app:srcCompat="@drawable/play" />
+    app:srcCompat="@drawable/playpause_button" />
 
     <ImageView
         android:id="@+id/button3"

@@ -137,7 +137,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="161dp"
         android:layout_marginEnd="162dp"
-        android:background="@drawable/choosefile"
+        android:background="@drawable/choosefile_button"
         android:text="View Location On MAP"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

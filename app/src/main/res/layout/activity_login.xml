@@ -11,31 +11,30 @@
         android:id="@+id/appLogo"
         android:layout_width="148dp"
         android:layout_height="90dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="94dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginBottom="85dp"
         android:contentDescription="@string/app_logo"
-        app:layout_constraintBottom_toTopOf="@+id/loginbox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.129"
         app:srcCompat="@drawable/applogo" />
+
 
     <ImageView
         android:id="@+id/mpPolicelogo"
         android:layout_width="96dp"
         android:layout_height="112dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="90dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginBottom="85dp"
         android:contentDescription="@string/mp_police_logo"
-        app:layout_constraintBottom_toTopOf="@+id/loginbox"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/appLogo"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093"
         app:srcCompat="@drawable/mppolicelogo" />
-
 
     <ImageView
         android:id="@+id/resetActivity"
@@ -126,7 +125,7 @@
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="222dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_marginStart="142dp"
         android:layout_marginEnd="142dp"
         android:layout_marginBottom="96dp"
@@ -145,10 +144,10 @@
         android:layout_marginEnd="49dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.452"
+        app:layout_constraintVertical_bias="0.457"
         app:srcCompat="@drawable/boxlogin" />
 
     <ImageView
@@ -173,8 +172,10 @@
         android:layout_marginBottom="13dp"
         app:layout_constraintBottom_toTopOf="@+id/loginbox"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appLogo"
+        app:layout_constraintVertical_bias="0.066"
         app:srcCompat="@drawable/userloginwriting" />
 
 
